@@ -1,0 +1,23 @@
+<?php
+
+namespace {{namespaceOverrides}};
+
+use Alexpr94\BitrixModels\Models\IBlock\TypeValuesFields\BaseValueField;
+
+class {{nameClass}}PropsData extends \Alexpr94\BitrixModels\Models\User\UserPropsData
+{
+{{props}}
+    protected function mapProp2Field(): array
+    {
+        return [
+{{map}}
+        ];
+    }
+
+    public static function labels(): array
+    {
+        return [
+{{labels}}
+        ];
+    }
+}

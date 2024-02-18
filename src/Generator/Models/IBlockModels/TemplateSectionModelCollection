@@ -1,0 +1,17 @@
+<?php
+
+namespace {{namespaceOverrides}};
+
+use Alexpr94\BitrixModels\Models\BaseModelsCollection;
+use {{namespace}}\{{nameClass}}SectionModel;
+
+class {{nameClass}}SectionModelCollection extends BaseModelsCollection
+{
+    /**
+     * @return {{nameClass}}SectionModel[]
+     */
+    public function getModels(): array
+    {
+        return parent::getModels();
+    }
+}

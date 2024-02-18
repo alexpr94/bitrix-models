@@ -1,0 +1,24 @@
+<?php
+
+namespace {{namespaceOverrides}};
+
+use Alexpr94\BitrixModels\Models\QueryParams\SectionQuery;
+use {{namespace}}\{{nameClass}}SectionModel;
+
+class {{nameClass}}SectionQuery extends SectionQuery
+{
+    public function all(?string $namePropForKey = 'id'): {{nameClass}}SectionModelCollection
+    {
+        return parent::all($namePropForKey);
+    }
+
+    public function one(): ?{{nameClass}}SectionModel
+    {
+        return parent::one();
+    }
+
+    protected function getClassModelsCollection(): {{nameClass}}SectionModelCollection
+    {
+        return new {{nameClass}}SectionModelCollection();
+    }
+}

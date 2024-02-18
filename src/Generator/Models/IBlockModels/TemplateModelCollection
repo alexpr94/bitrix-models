@@ -1,0 +1,17 @@
+<?php
+
+namespace {{namespaceOverrides}};
+
+use Alexpr94\BitrixModels\Models\BaseModelsCollection;
+use {{namespace}}\{{nameClass}}Model;
+
+class {{nameClass}}ModelCollection extends BaseModelsCollection
+{
+    /**
+     * @return {{nameClass}}Model[]
+     */
+    public function getModels(): array
+    {
+        return parent::getModels();
+    }
+}

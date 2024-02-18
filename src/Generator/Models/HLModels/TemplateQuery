@@ -1,0 +1,24 @@
+<?php
+
+namespace {{namespaceOverrides}};
+
+use Alexpr94\BitrixModels\Models\QueryParams\DataManagerQuery;
+use {{namespace}}\{{nameClass}}Model;
+
+class {{nameClass}}Query extends DataManagerQuery
+{
+    public function getClassModelsCollection(): {{nameClass}}Collection
+    {
+        return new {{nameClass}}Collection();
+    }
+
+    public function all(?string $namePropForKey = 'id'): {{nameClass}}Collection
+    {
+        return parent::all($namePropForKey);
+    }
+
+    public function one(): ?{{nameClass}}Model
+    {
+        return parent::one();
+    }
+}

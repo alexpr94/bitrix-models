@@ -1,0 +1,20 @@
+{
+  "name": "alexpr94/bitrix-models",
+  "type": "library",
+  "keywords": [
+    "bitrix",
+    "models"
+  ],
+  "description": "Model Layer in Bitrix",
+  "license": "MIT",
+  "homepage": "https://github.com/alexpr94/bitrix-models",
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=7.0.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Alexpr94\\BitrixModels\\": "src/"
+    }
+  }
+}

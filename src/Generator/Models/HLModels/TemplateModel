@@ -1,0 +1,38 @@
+<?php
+
+namespace {{namespace}};
+
+use Alexpr94\BitrixModels\Models\HL\BaseHLModel;
+use {{namespaceOverrides}}\{{nameClass}}Query;
+
+class {{nameClass}}Model extends BaseHLModel
+{
+{{constFieldsDb}}
+{{props}}
+    static public function getMapFieldsDb2Properties(): array
+    {
+        return [
+{{map}}
+        ];
+    }
+
+    public static function getNameHL(): string
+    {
+        return '{{nameHL}}';
+    }
+
+    public function save(): bool
+    {
+        return parent::save();
+    }
+
+    public function delete(): bool
+    {
+        return parent::delete();
+    }
+
+    public static function query(): {{nameClass}}Query
+    {
+        return new {{nameClass}}Query(static::class);
+    }
+}

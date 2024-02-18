@@ -1,0 +1,16 @@
+<?php
+
+namespace {{namespaceOverrides}};
+
+use {{namespace}}\{{nameClass}}Model;
+
+class {{nameClass}}ModelsCollection extends \Alexpr94\BitrixModels\Models\User\UserModelsCollection
+{
+    /**
+     * @return {{nameClass}}Model[]
+     */
+    public function getModels(): array
+    {
+        return parent::getModels();
+    }
+}

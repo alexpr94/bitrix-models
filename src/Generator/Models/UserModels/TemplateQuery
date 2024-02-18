@@ -1,0 +1,21 @@
+<?php
+
+namespace {{namespaceOverrides}};
+
+class {{nameClass}}Query extends \Alexpr94\BitrixModels\Models\QueryParams\UserQuery
+{
+    protected function getClassModelsCollection(): \{{namespaceOverrides}}\{{nameClass}}ModelsCollection
+    {
+        return new {{nameClass}}ModelsCollection();
+    }
+
+    public function all(?string $namePropForKey = 'id'): \{{namespaceOverrides}}\{{nameClass}}ModelsCollection
+    {
+        return parent::all($namePropForKey);
+    }
+
+    public function one(): ?\{{namespace}}\{{nameClass}}Model
+    {
+        return parent::one();
+    }
+}

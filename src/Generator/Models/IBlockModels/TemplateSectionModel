@@ -1,0 +1,31 @@
+<?php
+
+namespace {{namespace}};
+
+use Alexpr94\BitrixModels\Models\IBlock\Section\BaseSectionIBlockModel;
+use Alexpr94\BitrixModels\Bitrix\Tools;
+use {{namespaceOverrides}}\{{nameClass}}SectionPropsData;
+use {{namespaceOverrides}}\{{nameClass}}SectionQuery;
+
+class {{nameClass}}SectionModel extends BaseSectionIBlockModel
+{
+    public static function getIdIBlock(): int
+    {
+        return Tools::getIblockId('{{codeIBlock}}');
+    }
+
+    protected function propsDataObject(): {{nameClass}}SectionPropsData
+    {
+        return new {{nameClass}}SectionPropsData();
+    }
+
+    public function props(): {{nameClass}}SectionPropsData
+    {
+        return parent::props();
+    }
+
+    public static function query(): {{nameClass}}SectionQuery
+    {
+        return new {{nameClass}}SectionQuery(static::getIdIBlock(), static::class);
+    }
+}

@@ -1,0 +1,24 @@
+<?php
+
+namespace {{namespaceOverrides}};
+
+use Alexpr94\BitrixModels\Models\QueryParams\ElementQuery;
+use {{namespace}}\{{nameClass}}Model;
+
+class {{nameClass}}ElementQuery extends ElementQuery
+{
+    public function all(?string $namePropForKey = 'id'): {{nameClass}}ModelCollection
+    {
+        return parent::all($namePropForKey);
+    }
+
+    public function one(): ?{{nameClass}}Model
+    {
+        return parent::one();
+    }
+
+    protected function getClassModelsCollection(): {{nameClass}}ModelCollection
+    {
+        return new {{nameClass}}ModelCollection();
+    }
+}

@@ -1,0 +1,24 @@
+<?php
+
+namespace {{namespace}};
+
+use {{namespaceOverrides}}\{{nameClass}}PropsData;
+use {{namespaceOverrides}}\{{nameClass}}Query;
+
+class {{nameClass}}Model extends \Alexpr94\BitrixModels\Models\User\UserModel
+{
+    protected function propsDataObject(): {{nameClass}}PropsData
+    {
+        return new {{nameClass}}PropsData();
+    }
+
+    public function getProps(): {{nameClass}}PropsData
+    {
+        return parent::getProps();
+    }
+
+    public static function query(): {{nameClass}}Query
+    {
+        return new {{nameClass}}Query(static::class);
+    }
+}
