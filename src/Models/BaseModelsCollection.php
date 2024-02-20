@@ -7,51 +7,54 @@ class BaseModelsCollection
     /**
      * @var BaseModel[]
      */
-    protected array $models = [];
+    protected array $items = [];
     protected ?string $namePropForKey = null;
 
-    public function add(BaseModel $model)
+    public function add(BaseModel $item)
     {
-        $this->models[] = $model;
-    }
-
-    public function __construct()
-    {
+        $this->items[] = $item;
     }
 
     /**
      * @return BaseModel[]
      */
-    public function getModels(): array
+    public function items(): array
     {
         if (!is_null($this->namePropForKey)) {
             $result = [];
             if ($this->namePropForKey == 'id') {
-                foreach ($this->models as $model) {
-                    $result[$model->getId()] = $model;
+                foreach ($this->items as $item) {
+                    $result[$item->getId()] = $item;
                 }
             } else {
-                foreach ($this->models as $model) {
-                    $result[$model->{$this->namePropForKey}] = $model;
+                foreach ($this->items as $item) {
+                    $result[$item->{$this->namePropForKey}] = $item;
                 }
             }
             return $result;
         }
-        return $this->models;
+        return $this->items;
     }
 
     public function first(): ?BaseModel
     {
-        $models = $this->getModels();
-        foreach ($models as $model) {
-            return $model;
-        }
+        $items = $this->items();
+        if (!empty($items))
+            return $items[array_key_first($items)];
+        return null;
+    }
+
+    public function last(): ?BaseModel
+    {
+        $items = $this->items();
+        if (!empty($items))
+            return $items[array_key_last($items)];
         return null;
     }
 
     public function getCount(): int
     {
-        return count($this->getModels());
+        return count($this->items());
     }
 
     /**

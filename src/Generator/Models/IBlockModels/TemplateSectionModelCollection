@@ -10,8 +10,18 @@ class {{nameClass}}SectionModelCollection extends BaseModelsCollection
     /**
      * @return {{nameClass}}SectionModel[]
      */
-    public function getModels(): array
+    public function items(): array
     {
-        return parent::getModels();
+        return parent::items();
+    }
+
+    public function first(): ?{{nameClass}}SectionModel
+    {
+        return parent::first();
+    }
+
+    public function last(): ?{{nameClass}}SectionModel
+    {
+        return parent::last();
     }
 }

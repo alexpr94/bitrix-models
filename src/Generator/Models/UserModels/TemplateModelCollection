@@ -9,8 +9,18 @@ class {{nameClass}}ModelsCollection extends \Alexpr94\BitrixModels\Models\User\U
     /**
      * @return {{nameClass}}Model[]
      */
-    public function getModels(): array
+    public function items(): array
     {
-        return parent::getModels();
+        return parent::items();
+    }
+
+    public function first(): ?{{nameClass}}Model
+    {
+        return parent::first();
+    }
+
+    public function last(): ?{{nameClass}}Model
+    {
+        return parent::last();
     }
 }
