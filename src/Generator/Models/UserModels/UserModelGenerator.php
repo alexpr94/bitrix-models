@@ -2,7 +2,7 @@
 
 namespace Alexpr94\BitrixModels\Generator\Models\UserModels;
 
-use Alexpr94\BitrixModels\BaseErrorStore;
+use Alexpr94\BitrixModels\Store\BaseErrorStore;
 use Alexpr94\BitrixModels\Bitrix\Tools;
 
 class UserModelGenerator extends BaseErrorStore

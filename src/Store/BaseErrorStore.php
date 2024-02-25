@@ -1,6 +1,6 @@
 <?php
 
-namespace Alexpr94\BitrixModels;
+namespace Alexpr94\BitrixModels\Store;
 
 class BaseErrorStore
 {

@@ -2,7 +2,7 @@
 
 namespace Alexpr94\BitrixModels\Models;
 
-use Alexpr94\BitrixModels\BaseErrorStore;
+use Alexpr94\BitrixModels\Store\BaseErrorStore;
 use Alexpr94\BitrixModels\Models\QueryParams\IQuery;
 
 abstract class BaseModel

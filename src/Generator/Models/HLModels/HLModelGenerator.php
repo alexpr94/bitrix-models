@@ -5,7 +5,7 @@ namespace Alexpr94\BitrixModels\Generator\Models\HLModels;
 use Bitrix\Highloadblock\HighloadBlockTable;
 use Bitrix\Main\ORM\Fields\Relations\Reference;
 use Bitrix\Main\ORM\Fields\ScalarField;
-use Alexpr94\BitrixModels\BaseErrorStore;
+use Alexpr94\BitrixModels\Store\BaseErrorStore;
 
 class HLModelGenerator extends BaseErrorStore
 {
