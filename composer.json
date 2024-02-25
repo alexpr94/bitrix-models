@@ -12,9 +12,17 @@
   "require": {
     "php": ">=7.0.0"
   },
+  "require-dev": {
+    "phpunit/phpunit": "^9.6"
+  },
   "autoload": {
     "psr-4": {
       "Alexpr94\\BitrixModels\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Alexpr94\\Tests\\BitrixModels\\": "tests/"
     }
   }
 }
