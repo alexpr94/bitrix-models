@@ -137,7 +137,7 @@ $collection = CatalogSectionModel::query()
     ->setNPageSize(10)
     ->setINumPage(10)
     ->all();
-$models = $collection->getModels();
+$models = $collection->items();
 foreach ($models as $model) {
     var_dump($model->fields);
     var_dump($model->props());
