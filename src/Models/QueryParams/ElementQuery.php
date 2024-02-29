@@ -77,7 +77,7 @@ class ElementQuery extends BaseIBlockQuery
     protected function getNavParams(): array
     {
         $limit = $this->getLimit();
-        $navParams = false;
+        $navParams = [];
         if (!is_null($limit)) {
             $navParams = [
                 'nTopCount' => $this->getLimit(),

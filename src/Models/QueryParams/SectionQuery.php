@@ -82,7 +82,7 @@ class SectionQuery extends BaseIBlockQuery
 
     protected function getNavParams(): array
     {
-        $navParams = false;
+        $navParams = [];
         if (!is_null($this->getNPageSize())) {
             $navParams = [
                 'nPageSize' => $this->getNPageSize(),
