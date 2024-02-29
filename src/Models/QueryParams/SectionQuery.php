@@ -73,6 +73,8 @@ class SectionQuery extends BaseIBlockQuery
 
     protected function getIBlockResult(array $order, array $filter, array $navParams, array $select): ?\CIBlockResult
     {
+        if (empty($navParams))
+            $navParams = false;
         $res = \CIBlockSection::GetList($order, $filter, false, $select, $navParams);
         if (is_object($res)) {
             return $res;

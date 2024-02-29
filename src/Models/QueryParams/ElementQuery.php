@@ -67,6 +67,8 @@ class ElementQuery extends BaseIBlockQuery
 
     protected function getIBlockResult(array $order, array $filter, array $navParams, array $select): ?\CIBlockResult
     {
+        if (empty($navParams))
+            $navParams = false;
         $res = \CIBlockElement::GetList($order, $filter, false, $navParams, $select);
         if (is_object($res)) {
             return $res;
