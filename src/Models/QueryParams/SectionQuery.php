@@ -33,7 +33,7 @@ class SectionQuery extends BaseIBlockQuery
         'UF_*'
     ];
     protected int $iNumPage = 1;
-    protected ?int $nPageSize = 10;
+    protected ?int $nPageSize = null;
 
     /**
      * @return int
