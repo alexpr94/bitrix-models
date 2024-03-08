@@ -3,6 +3,7 @@
 namespace Alexpr94\BitrixModels\Models\IBlock\Element;
 
 use Alexpr94\BitrixModels\Bitrix\Tools;
+use Alexpr94\BitrixModels\Models\IBlock\TypeValuesFields\BaseValueField;
 use Alexpr94\BitrixModels\Models\IBlock\TypeValuesFields\ValueElementLinkField;
 use Alexpr94\BitrixModels\Models\IBlock\TypeValuesFields\ValueField;
 use Alexpr94\BitrixModels\Models\IBlock\TypeValuesFields\ValueFileField;
@@ -33,30 +34,29 @@ abstract class IBElementPropsData
                             $value = new ValueListField();
                             $value->value = null;
                             $value->valueEnumId = $dataDb['PROPERTY_' . $propData['ID']] ?? null;
+                            if (is_null($value->valueEnumId)) {
+                                $value->valueEnumId = $dataDb['PROPERTY_' . $codeProp . '_VALUE'] ?? null;
+                            }
                             $value->valueXmlId = null;
                             $this->{$mapField2Prop[$codeProp] ?? $codeProp} = $value;
                             break;
                         case 'F':
                             $value = new ValueFileField();
-                            $value->value = $dataDb['PROPERTY_' . $propData['ID']] ?? null;
-                            $this->{$mapField2Prop[$codeProp] ?? $codeProp} = $value;
+                            $this->setPropValue($dataDb, $propData['ID'], $value, $codeProp, $mapField2Prop[$codeProp]);
                             break;
                         case 'E':
                             $value = new ValueElementLinkField();
-                            $value->value = $dataDb['PROPERTY_' . $propData['ID']] ?? null;
-                            $this->{$mapField2Prop[$codeProp] ?? $codeProp} = $value;
+                            $this->setPropValue($dataDb, $propData['ID'], $value, $codeProp, $mapField2Prop[$codeProp]);
                             break;
                         case 'G':
                             $value = new ValueSectionLinkField();
-                            $value->value = $dataDb['PROPERTY_' . $propData['ID']] ?? null;
-                            $this->{$mapField2Prop[$codeProp] ?? $codeProp} = $value;
+                            $this->setPropValue($dataDb, $propData['ID'], $value, $codeProp, $mapField2Prop[$codeProp]);
                             break;
                         case 'N':
                         default:
                             $value = new ValueField();
-                            $value->value = $dataDb['PROPERTY_' . $propData['ID']] ?? null;
-                            $this->{$mapField2Prop[$codeProp] ?? $codeProp} = $value;
-                            break;
+                        $this->setPropValue($dataDb, $propData['ID'], $value, $codeProp, $mapField2Prop[$codeProp]);
+                        break;
                     }
                 }
                 break;
@@ -109,5 +109,22 @@ abstract class IBElementPropsData
             static::$props[$idIBlock] = Tools::getPropertiesByIdIBlock($idIBlock);
         }
         return static::$props[$idIBlock];
+    }
+
+    /**
+     * @param $dataDb
+     * @param $propId
+     * @param BaseValueField $value
+     * @param $codeField
+     * @param $nameProp
+     * @return void
+     */
+    protected function setPropValue(&$dataDb, $propId, BaseValueField $value, $codeField, $nameProp): void
+    {
+        $value->value = $dataDb['PROPERTY_' . $propId] ?? null;
+        if (is_null($value->value)) {
+            $value->value = $dataDb['PROPERTY_' . $codeField . '_VALUE'] ?? null;
+        }
+        $this->{$nameProp ?? $codeField} = $value;
     }
 }
