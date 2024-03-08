@@ -8,6 +8,7 @@ use Alexpr94\BitrixModels\Models\QueryParams\ElementQuery;
 abstract class BaseElementIBlockModel extends BaseIBlockModel
 {
     public IBElementFieldsData $fields;
+    public IBElementPriceData $price;
     protected IBElementPropsData $props;
 
     public function __construct(string $methodGettingRecordInLoop)
@@ -15,6 +16,7 @@ abstract class BaseElementIBlockModel extends BaseIBlockModel
         parent::__construct($methodGettingRecordInLoop);
         $this->fields = new IBElementFieldsData();
         $this->props = $this->propsDataObject();
+        $this->price = new IBElementPriceData();
     }
 
     abstract protected function propsDataObject(): IBElementPropsData;
@@ -24,6 +26,7 @@ abstract class BaseElementIBlockModel extends BaseIBlockModel
         parent::loadFromDb($dataDb);
         $this->fields->load($dataDb);
         $this->props->load($dataDb, $this->getMethodGettingRecordInLoop(), static::getIdIBlock());
+        $this->price->load($dataDb);
     }
 
     public static function query(): ElementQuery
