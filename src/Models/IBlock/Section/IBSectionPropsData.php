@@ -2,7 +2,7 @@
 
 namespace Alexpr94\BitrixModels\Models\IBlock\Section;
 
-use Alexpr94\BitrixModels\Bitrix\Tools;
+use Alexpr94\BitrixModels\Bitrix\IBlockTools;
 use Alexpr94\BitrixModels\Models\IBlock\TypeValuesFields\ValueField;
 use Alexpr94\BitrixModels\Models\QueryParams\BaseIBlockQuery;
 
@@ -46,7 +46,7 @@ abstract class IBSectionPropsData
     protected function getProperties(int $idIBlock): array
     {
         if (!isset(static::$props[$idIBlock])) {
-            static::$props[$idIBlock] = Tools::getSectionPropertiesByIdIBlock($idIBlock);
+            static::$props[$idIBlock] = IBlockTools::getSectionPropertiesByIdIBlock($idIBlock);
         }
         return static::$props[$idIBlock];
     }

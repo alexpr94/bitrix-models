@@ -2,7 +2,7 @@
 
 namespace Alexpr94\BitrixModels\Models\User;
 
-use Alexpr94\BitrixModels\Bitrix\Tools;
+use Alexpr94\BitrixModels\Bitrix\UserTools;
 use Alexpr94\BitrixModels\Models\IBlock\TypeValuesFields\ValueField;
 use Alexpr94\BitrixModels\Models\QueryParams\BaseIBlockQuery;
 
@@ -45,7 +45,7 @@ abstract class UserPropsData
     protected function getProperties(): array
     {
         if (is_null(static::$props)) {
-            static::$props = Tools::getUserProperties();
+            static::$props = UserTools::getUserProperties();
         }
         return static::$props;
     }

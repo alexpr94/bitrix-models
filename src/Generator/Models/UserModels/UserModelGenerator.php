@@ -2,8 +2,8 @@
 
 namespace Alexpr94\BitrixModels\Generator\Models\UserModels;
 
+use Alexpr94\BitrixModels\Bitrix\UserTools;
 use Alexpr94\BitrixModels\Store\BaseErrorStore;
-use Alexpr94\BitrixModels\Bitrix\Tools;
 
 class UserModelGenerator extends BaseErrorStore
 {
@@ -164,7 +164,7 @@ class UserModelGenerator extends BaseErrorStore
 
     protected function props(): string
     {
-        $props = Tools::getUserProperties();
+        $props = UserTools::getUserProperties();
         $code = '';
         foreach ($props as $propName => $prop) {
             $code .= '    /** @var BaseValueField ' . $prop['EDIT_FORM_LABEL'] . ' [' . $prop['FIELD_NAME'] . '] */
@@ -176,7 +176,7 @@ class UserModelGenerator extends BaseErrorStore
 
     protected function map(): string
     {
-        $props = Tools::getUserProperties();
+        $props = UserTools::getUserProperties();
         $code = [];
         foreach ($props as $propName => $prop) {
             $code[] = '            \'' . $this->toCamelCaseSection($propName) . '\' => \'' . $propName . '\',';
@@ -187,7 +187,7 @@ class UserModelGenerator extends BaseErrorStore
 
     protected function labels(): string
     {
-        $props = Tools::getUserProperties();
+        $props = UserTools::getUserProperties();
         $code = [];
         foreach ($props as $propName => $prop) {
             $code[] = '            \'' . $this->toCamelCaseSection($propName) . '\' => \'' . $prop['EDIT_FORM_LABEL'] . '\',';

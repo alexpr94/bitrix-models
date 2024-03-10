@@ -2,7 +2,7 @@
 
 namespace Alexpr94\BitrixModels\Models\IBlock\Element;
 
-use Alexpr94\BitrixModels\Bitrix\Tools;
+use Alexpr94\BitrixModels\Bitrix\IBlockTools;
 use Alexpr94\BitrixModels\Models\IBlock\TypeValuesFields\ValueElementLinkField;
 use Alexpr94\BitrixModels\Models\IBlock\TypeValuesFields\ValueField;
 use Alexpr94\BitrixModels\Models\IBlock\TypeValuesFields\ValueFileField;
@@ -106,7 +106,7 @@ abstract class IBElementPropsData
     protected function getProperties(int $idIBlock): array
     {
         if (!isset(static::$props[$idIBlock])) {
-            static::$props[$idIBlock] = Tools::getPropertiesByIdIBlock($idIBlock);
+            static::$props[$idIBlock] = IBlockTools::getPropertiesByIdIBlock($idIBlock);
         }
         return static::$props[$idIBlock];
     }

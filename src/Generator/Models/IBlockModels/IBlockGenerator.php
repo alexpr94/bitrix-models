@@ -3,7 +3,7 @@
 namespace Alexpr94\BitrixModels\Generator\Models\IBlockModels;
 
 use Alexpr94\BitrixModels\Store\BaseErrorStore;
-use Alexpr94\BitrixModels\Bitrix\Tools;
+use Alexpr94\BitrixModels\Bitrix\IBlockTools;
 
 class IBlockGenerator extends BaseErrorStore
 {
@@ -261,7 +261,7 @@ class IBlockGenerator extends BaseErrorStore
 
     protected function props(): string
     {
-        $props = Tools::getPropertiesByIdIBlock(Tools::getIblockId($this->codeIblock));
+        $props = IBlockTools::getPropertiesByIdIBlock(IBlockTools::getIblockId($this->codeIblock));
         $code = '';
         foreach ($props as $propName => $prop) {
             $code .= '    /** @var BaseValueField ' . $prop['NAME'] . ' [' . $prop['CODE'] . '] */
@@ -273,7 +273,7 @@ class IBlockGenerator extends BaseErrorStore
 
     protected function propsSection(): string
     {
-        $props = Tools::getSectionPropertiesByIdIBlock(Tools::getIblockId($this->codeIblock));
+        $props = IBlockTools::getSectionPropertiesByIdIBlock(IBlockTools::getIblockId($this->codeIblock));
         $code = '';
         foreach ($props as $propName => $prop) {
             $code .= '    /** @var BaseValueField ' . $prop['EDIT_FORM_LABEL'] . ' [' . $prop['FIELD_NAME'] . '] */
@@ -285,7 +285,7 @@ class IBlockGenerator extends BaseErrorStore
 
     protected function map(): string
     {
-        $props = Tools::getPropertiesByIdIBlock(Tools::getIblockId($this->codeIblock));
+        $props = IBlockTools::getPropertiesByIdIBlock(IBlockTools::getIblockId($this->codeIblock));
         $code = [];
         foreach ($props as $propName => $prop) {
             $code[] = '            \'' . $this->toCamelCase($propName) . '\' => \'' . $propName . '\',';
@@ -296,7 +296,7 @@ class IBlockGenerator extends BaseErrorStore
 
     protected function mapSection(): string
     {
-        $props = Tools::getSectionPropertiesByIdIBlock(Tools::getIblockId($this->codeIblock));
+        $props = IBlockTools::getSectionPropertiesByIdIBlock(IBlockTools::getIblockId($this->codeIblock));
         $code = [];
         foreach ($props as $propName => $prop) {
             $code[] = '            \'' . $this->toCamelCaseSection($propName) . '\' => \'' . $propName . '\',';
@@ -307,7 +307,7 @@ class IBlockGenerator extends BaseErrorStore
 
     protected function labels(): string
     {
-        $props = Tools::getPropertiesByIdIBlock(Tools::getIblockId($this->codeIblock));
+        $props = IBlockTools::getPropertiesByIdIBlock(IBlockTools::getIblockId($this->codeIblock));
         $code = [];
         foreach ($props as $propName => $prop) {
             $code[] = '            \'' . $this->toCamelCase($propName) . '\' => \'' . $prop['NAME'] . '\',';
@@ -318,7 +318,7 @@ class IBlockGenerator extends BaseErrorStore
 
     protected function labelsSection(): string
     {
-        $props = Tools::getSectionPropertiesByIdIBlock(Tools::getIblockId($this->codeIblock));
+        $props = IBlockTools::getSectionPropertiesByIdIBlock(IBlockTools::getIblockId($this->codeIblock));
         $code = [];
         foreach ($props as $propName => $prop) {
             $code[] = '            \'' . $this->toCamelCaseSection($propName) . '\' => \'' . $prop['EDIT_FORM_LABEL'] . '\',';
@@ -329,7 +329,7 @@ class IBlockGenerator extends BaseErrorStore
 
     protected function init(): void
     {
-        if (is_null(Tools::getIblockId($this->codeIblock)))
+        if (is_null(IBlockTools::getIblockId($this->codeIblock)))
             throw new \Exception('IBlock not found by code ' . $this->codeIblock);
     }
 }
