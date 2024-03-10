@@ -1,16 +1,13 @@
 <?php
 
-namespace Alexpr94\BitrixModels\Bitrix\Repository\Price;
+namespace Alexpr94\BitrixModels\Bitrix\Repository\Price\Dto;
 
-class PriceData
+class PriceGroupDto
 {
     public $id;
     public ?string $name;
-    public bool $base;
+    public ?bool $base;
     public $sort;
-    public bool $canAccess;
-    public bool $canBuy;
-    public $nameLang;
     public $xmlId;
     public $createdBy;
     public $modifiedBy;
