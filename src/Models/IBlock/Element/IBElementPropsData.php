@@ -2,7 +2,7 @@
 
 namespace Alexpr94\BitrixModels\Models\IBlock\Element;
 
-use Alexpr94\BitrixModels\Bitrix\IBlockTools;
+use Alexpr94\BitrixModels\Bitrix\Tools\IBlockTools;
 use Alexpr94\BitrixModels\Models\IBlock\TypeValuesFields\ValueElementLinkField;
 use Alexpr94\BitrixModels\Models\IBlock\TypeValuesFields\ValueField;
 use Alexpr94\BitrixModels\Models\IBlock\TypeValuesFields\ValueFileField;

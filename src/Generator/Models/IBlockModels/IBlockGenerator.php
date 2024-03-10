@@ -2,8 +2,8 @@
 
 namespace Alexpr94\BitrixModels\Generator\Models\IBlockModels;
 
+use Alexpr94\BitrixModels\Bitrix\Tools\IBlockTools;
 use Alexpr94\BitrixModels\Store\BaseErrorStore;
-use Alexpr94\BitrixModels\Bitrix\IBlockTools;
 
 class IBlockGenerator extends BaseErrorStore
 {

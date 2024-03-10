@@ -1,6 +1,6 @@
 <?php
 
-namespace Alexpr94\BitrixModels\Bitrix;
+namespace Alexpr94\BitrixModels\Bitrix\Tools;
 
 use Bitrix\Main\UserFieldTable;
 

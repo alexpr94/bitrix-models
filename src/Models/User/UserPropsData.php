@@ -2,7 +2,7 @@
 
 namespace Alexpr94\BitrixModels\Models\User;
 
-use Alexpr94\BitrixModels\Bitrix\UserTools;
+use Alexpr94\BitrixModels\Bitrix\Tools\UserTools;
 use Alexpr94\BitrixModels\Models\IBlock\TypeValuesFields\ValueField;
 use Alexpr94\BitrixModels\Models\QueryParams\BaseIBlockQuery;
 
