@@ -19,7 +19,7 @@ class Tools
     public static function getPropertiesByIdIBlock(int $idIBlock): array
     {
         $props = [];
-        $res = \CIBlock::GetProperties($idIBlock, array(), array());
+        $res = \CIBlock::GetProperties($idIBlock, array('ID' => 'ASC'), array());
         while ($data = $res->Fetch()) {
             $props[$data['CODE']] = $data;
         }
@@ -33,6 +33,7 @@ class Tools
         $dbUserFields = UserFieldTable::getList(array(
             'select' => ['*', 'EDIT_FORM_LABEL' => 'LABELS.EDIT_FORM_LABEL'],
             'filter' => array('ENTITY_ID' => 'IBLOCK_' . $idIBlock . '_SECTION'),
+            'order' => ['ID' => 'asc'],
             'runtime' => $runtime,
         ));
         $result = [];
@@ -49,6 +50,7 @@ class Tools
         $dbUserFields = UserFieldTable::getList(array(
             'select' => ['*', 'EDIT_FORM_LABEL' => 'LABELS.EDIT_FORM_LABEL'],
             'filter' => array('ENTITY_ID' => 'USER'),
+            'order' => ['ID' => 'asc'],
             'runtime' => $runtime,
         ));
         $result = [];
